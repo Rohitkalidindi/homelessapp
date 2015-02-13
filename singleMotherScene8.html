@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="css/game.css">
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+	<script>
+		var first=true;
+		var done=true;
+		reached=false;
+		var callusualshelter = function(){
+			done=true;
+			$("#text").text("Erika calls her usual shelter and finds out that it is already full. Shelter administrator advice her calling other shelters.");
+			$("div.mask").show();
+			$("div.dialogue").show();
+			$('.phone').hide();
+			$('.phone1').show();
+		}
+		var callnewshelter = function(){
+			done=true;
+			$("#text").text("Shelter administrator informs Erika that there is still few places left and if she wants he can hold her place."
+							+" Erika asks him to reserve place for her and kids and walks to new shelter.");
+			$("div.mask").show();
+			$("div.dialogue").show();
+		}
+		var closeWindow = function(){
+			$("div.mask").hide();
+			$("div.dialogue").hide();
+			if(done==false)
+				done=true;
+			if(reached==true)
+				window.location.href="singleMotherEnd.html";
+			else
+				show112();
+		}
+		var show112 = function(){
+			if(done==true)
+			{
+				reached=true;
+				$("img.singlemother").animate({
+					top:40+"%",
+					left:73+"%"
+				},4000);
+				$("img.route1121").delay(2000).fadeIn(1000);
+				$("#text").text("");
+				$("#text").prepend('<img src="img/text21.png" width="100%"/>');
+				$("div.mask").delay(5000).show(0);
+				$("div.dialogue").delay(5000).show(0);
+			}
+		}
+		$(document).ready(function(){
+			var $winwidth = $(window).width();
+			var $winheight = $(window).height();
+			$("#text").text("");
+			$("#text").prepend('<img src="img/text16.png" width="100%"/>');
+			$("#divg").css({
+				left: $winwidth/2,
+				top: $winheight/2
+			});
+			$("img.source-image").attr({
+				width: $winwidth,
+				height: $winheight
+			});
+			$(window).bind("resize", function(){ 
+				var $winwidth = $(window).width();
+				var $winheight = $(window).height();
+				$("img.source-image").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+				$("#divg").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+			 });
+		}); 
+	</script>
+</head>
+<body id="page-body">
+	<img id="source-image" src="img/bg.jpg" alt="" />
+	<div id="actual-body">
+			<img src="img/ShelterClosed.png" alt="" class="house" />
+			<img src="img/newshelter.png" alt="" class="shelter2" onclick="show112()"/>
+			<img src="img/route111.png" alt="" class="route111" height="25%"/>
+			<img src="img/route1121.png" alt="" class="route1121" width="60%"/>
+			<img src="img/route1122.png" alt="" class="route1122" width="50%"/>
+			<img src="img/singlemother.png" alt="" class="singlemother"/>
+		<div class="mask">
+			<div class="dialogue">
+				<table class="layout" background="board.jpg">
+					
+						<tr><td><h2 id="text" ></h2></td></tr>
+						<tr><td align="right"><img src="img/continue.png" alt="" align="right" onclick="closeWindow()" class="next"/></td></tr>
+					
+				</table>		
+			</div>
+		</div>
+	</div>
+</body>

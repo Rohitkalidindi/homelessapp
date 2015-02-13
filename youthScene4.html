@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="css/game.css">
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+	<script>
+		var s1=false;
+		var s2=false;
+		var s3=false;
+		var closeWindow = function(){
+			$("div.mask").hide();
+			$("div.dialogue").hide();
+			if(s1==true && s2==true && s3==true)
+				window.location.href="youthSceneEnd.html";
+		}
+		var showClothes = function(){
+				$("#text").text("");
+				$("#text").prepend('<img src="img/granger13.png" width="100%"/>');
+				$("div.mask").delay(1000).show(0);
+				$("div.dialogue").delay(1000).show(0);
+				s1=true;
+		}
+		var showTeacher = function(){
+				$("#text").text("");
+				$("#text").prepend('<img src="img/granger16.png" width="100%"/>');
+				$("div.mask").delay(1000).show(0);
+				$("div.dialogue").delay(1000).show(0);
+				s2=true;
+		}
+		var showBullies = function(){
+				$("#text").text("");
+				$("#text").prepend('<img src="img/granger14.png" width="100%"/>');
+				$("div.mask").delay(1000).show(0);
+				$("div.dialogue").delay(1000).show(0);
+				s3=true;
+		}
+		$(document).ready(function(){
+			var $winwidth = $(window).width();
+			var $winheight = $(window).height();
+			$("#text").text("");
+			$("#text").prepend('<img src="img/granger12.png" width="100%"/>');
+			$("#divg").css({
+				left: $winwidth/2,
+				top: $winheight/2
+			});
+			$("img.source-image").attr({
+				width: $winwidth,
+				height: $winheight
+			});
+			$(window).bind("resize", function(){ 
+				var $winwidth = $(window).width();
+				var $winheight = $(window).height();
+				$("img.source-image").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+				$("#divg").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+			 });
+		}); 
+	</script>
+</head>
+<body id="page-body">
+	<img id="source-image" src="img/bg.jpg" alt="" />
+	<div id="actual-body">
+			<img src="img/clothes.png" alt="" class="clothesend" onclick="showClothes()"/>
+			<img src="img/teacher-END.png" alt="" class="teacherend" onclick="showTeacher()"/>
+			<img src="img/bullies.png" alt="" class="bulliesend" onclick="showBullies()"/>
+			<img src="img/boy.png" alt="" class="boyend"/>
+		<div class="mask">
+			<div class="dialogue">
+				<table class="layout" background="board.jpg">
+					
+						<tr><td><h2 id="text" ></h2></td></tr>
+						<tr><td align="right"><img src="img/continue.png" alt="" align="right" onclick="closeWindow()" class="next"/></td></tr>
+					
+				</table>		
+			</div>
+		</div>
+	</div>
+</body>

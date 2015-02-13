@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link type="text/css" rel="stylesheet" href="css/game.css">
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+	<script>
+        
+        var playProfessional = function(){
+			var $ht=$(window).height();
+			var $wd=$(window).width();
+			$("#veteran").stopRotate();
+			$("#veteran").hide(700);
+			$("#youth").stopRotate();
+			$(".name").hide();
+			$("#youth").hide(700);
+			$("#singlemother").stopRotate();
+			$("#singlemother").hide(700);
+			$("#professional").delay(300).fadeOut();
+			$("#divProfessional").delay(700).animate({
+				width: "100%",
+				height: "100%",
+				left:0,
+				top:0,
+				padding:10
+			},800);
+			
+		}
+        
+		var playVeteran = function(){
+			var $ht=$(window).height();
+			var $wd=$(window).width();
+			$("#professional").stopRotate();
+			$("#professional").hide(700);
+			$("#youth").stopRotate();
+			$(".name").hide();
+			$("#youth").hide(700);
+			$("#singlemother").stopRotate();
+			$("#singlemother").hide(700);
+			$("#veteran").delay(300).fadeOut();
+			$("#divVeteran").delay(700).animate({
+				width: "100%",
+				height: "100%",
+				left:0,
+				top:0,
+				padding:10
+			},800);
+			
+		}
+		
+		var playSingleMom = function(){
+			var $ht=$(window).height();
+			var $wd=$(window).width();
+			$("#professional").stopRotate();
+			$("#professional").hide(700);
+			$("#youth").stopRotate();
+			$(".name").hide();
+			$("#youth").hide(700);
+			$("#veteran").stopRotate();
+			$("#veteran").hide(700);
+			$("#singlemother").delay(300).fadeOut();
+			$("#divSingleMother").delay(700).animate({
+				width: "100%",
+				height: "100%",
+				left:0,
+				top:0,
+				padding:10
+			},800);
+			
+		}
+		var playYouth = function(){
+			var $ht=$(window).height();
+			var $wd=$(window).width();
+			$("#professional").stopRotate();
+			$("#professional").hide(700);
+			$("#singlemother").stopRotate();
+			$("#singlemother").hide(700);
+			$("#veteran").stopRotate();
+			$(".name").hide();
+			$("#veteran").hide(700);
+			$("#youth").delay(300).fadeOut();
+			$("#divYouth").delay(700).animate({
+				width: "100%",
+				height:"100%",
+				left:0,
+				top:0,
+				padding:10
+			},800);
+			
+		}
+		var rotationRight1 = function (){
+			$("#veteran").rotate({
+				angle:-10, 
+				animateTo:10, 
+				duration: 1500,
+				callback: rotationLeft1
+			});
+		}
+		var rotationLeft1 = function (){
+			$("#veteran").rotate({
+				angle:10, 
+				animateTo:-10, 
+				duration: 1500,
+				callback: rotationRight1
+			});
+		}
+		var rotationRight2 = function (){
+			$("#singlemother").rotate({
+
+				angle:-10, 
+				animateTo:10, 
+				duration: 1000,
+				callback: rotationLeft2
+			});
+		}
+		var rotationLeft2 = function (){
+			$("#singlemother").rotate({
+				angle:10, 
+				animateTo:-10, 
+				duration: 1000,
+				callback: rotationRight2
+			});
+		}
+		var rotationRight3 = function (){
+			$("#professional").rotate({
+				angle:-10, 
+				animateTo:10, 
+				duration: 1000,
+				callback: rotationLeft3
+			});
+		}
+		var rotationLeft3 = function (){
+			$("#professional").rotate({
+				angle:10, 
+				animateTo:-10, 
+				duration: 1000,
+				callback: rotationRight3
+			});
+		}
+		var rotationRight4 = function (){
+			$("#youth").rotate({
+				angle:-10, 
+				animateTo:10, 
+				duration: 1000,
+				callback: rotationLeft4
+			});
+		}
+		var rotationLeft4 = function (){
+			$("#youth").rotate({
+				angle:10, 
+				animateTo:-10, 
+				duration: 1000,
+				callback: rotationRight4
+
+			});
+		}
+		$(document).ready(function(){
+			var $winwidth = $(window).width();
+			var $winheight = $(window).height();
+			$("#divVeteran").css({
+				left: $winwidth/2,
+				top: $winheight/2
+			});
+			$("#divSingleMother").css({
+				left: $winwidth/2,
+				top: $winheight/2
+			});
+			$("#divYouth").css({
+				left: $winwidth/2,
+				top: $winheight/2
+			});
+            $("#divProfessional").css({
+				left: $winwidth/2,
+				top: $winheight/2
+			});
+			$("img.source-image").attr({
+				width: $winwidth,
+				height: $winheight
+			});
+			$(window).bind("resize", function(){ 
+				var $winwidth = $(window).width();
+				var $winheight = $(window).height();
+				$("img.source-image").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+				$("#divVeteran").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+				$("#divSingleMother").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+				$("#divYouth").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+                $("#divProfessional").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+			 });
+			 rotationRight1();
+			 rotationRight2();
+			 rotationRight3();
+			 rotationRight4();
+			$(".close").click(function(){
+				location.reload();
+			});
+		}); 
+		
+		
+	</script>
+</head>
+<body id="page-body">
+	<img id="source-image" src="img/wallBg.jpg" alt="" />
+	<div id="actual-body">		
+		<p align="center"><img src="img/SELECT.png" class="name"/></p>
+		<div id="divSingleMother">
+			<table class="layout1">
+				<tr>
+					<td align="right"><img src="img/no.png" width="20" height="20" alt="" align="right" class="close"/></td>
+				</tr>
+				<tr>
+					<td align="center"><img src="img/erikaText.png" width="70%" alt=""/></td>
+				</tr>
+				<tr>
+					<td align="right"><a href="singleMotherScene1.html"><img src="img/continue.png" alt="" align="right"/></a></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="divYouth">
+			<table class="layout1">
+				<tr>
+					<td align="right"><img src="img/no.png" width="20" height="20" alt="" align="right" class="close"/></td>
+				</tr>
+				<tr>
+					<td align="center"><img src="img/grangerText.png" width="70%" alt=""/></td>
+				</tr>
+				<tr>
+					<td align="right"><a href="youthScene1.html"><img src="img/continue.png" alt="" align="right"/></a></td>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="divVeteran">
+			<table class="layout1">
+				<tr>
+					<td align="right"><img src="img/no.png" width="20" height="20" alt="" align="right" class="close"/></td>
+				</tr>
+				<tr>
+					<td align="center"><img src="img/sandraText.png" width="70%" alt=""/></td>
+				</tr>
+				<tr>
+					<td align="right"><a href="veteranScene1.html"><img src="img/continue.png" alt="" align="right"/></a></td>
+				</tr>
+			</table>
+		</div>
+        
+        <div id="divProfessional">
+			<table class="layout1">
+				<tr>
+					<td align="right"><img src="img/no.png" width="20" height="20" alt="" align="right" class="close"/></td>
+				</tr>
+				<tr>
+					<td align="center"><img src="img/leoText.png" width="70%" alt=""/></td>
+				</tr>
+				<tr>
+					<td align="right"><a href="professionalScene1.html"><img src="img/continue.png" alt="" align="right"/></a></td>
+				</tr>
+			</table>
+		</div>
+		
+		<table align="center" id="icons-table">
+			<tr>
+				<td align="center"><img id="youth" class="next" src="img/boyIcon.png" alt="" onclick="playYouth()"/>
+				<br/><br/>
+				<img src="img/grangerNew.png"  class="name"/>
+				</td>
+				<td align="center"><img id="singlemother" class="next" src="img/singleIcon.png" alt="" onclick="playSingleMom()"/>
+				<br/><br/>
+				<img src="img/erikaNew.png" class="name"/>
+				</td>
+			</tr>
+            <tr><td><br/></td></tr>
+			<tr>
+				<td align="center"><img id="veteran" class="next" src="img/veteranIcon.png" alt="" onclick="playVeteran()"/>
+				<br/><br/>
+				<img src="img/sandraNew.png" class="name"/>
+				</td>
+                <td align="center"><img id="professional" class="next" src="img/professionalIcon.png" alt="" onclick="playProfessional()"/>
+				<br/><br/>
+				<img src="img/leoNew.png" class="name"/>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>

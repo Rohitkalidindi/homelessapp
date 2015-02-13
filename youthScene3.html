@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="css/game.css">
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+	<script>
+		var done=true;
+		reached=false;
+		var closeWindow = function(){
+			$("div.mask").hide();
+			$("div.dialogue").hide();
+			if(done==false)
+				done=true;
+			if(done==true && reached==true)
+				window.location.href="youthScene4.html";
+		}
+		var showHelp = function(){
+			if(done==true && reached==false)
+			{
+				done=false;
+				$("img.company").click(function(){return false;});
+				$("img.bully1").hide();
+				$("#hit").show();
+				$("#hit").delay(1000).hide(0);
+				$("#run1").delay(1000).show(0);
+				$("img.boysub").hide();
+				$("#injured").show();
+				$("#run1").animate({
+					left:0+"%"
+				},2000);
+				$("img.bully2").delay(1000).hide(0);
+				$("#run2").delay(0).show(0);
+				$("#run2").animate({
+					left:0+"%"
+				},2000);
+				$("#text").text("");
+				$("#text").prepend('<img src="img/granger10.png" width="100%"/>');
+				$("div.mask").delay(4000).show(0);
+				$("div.dialogue").delay(4000).show(0);
+				reached=true;
+			}
+		}
+		var showMoney = function(){
+			if(done==true && reached==false)
+			{
+				done=false;
+				$("img.company").click(function(){return false;});
+				$("img.bully1").hide();
+				$("#run1").show();
+				$("#run1").animate({
+					left:0+"%"
+				},2000);
+				$("img.bully2").hide();
+				$("#run2").show();
+				$("#run2").animate({
+					left:0+"%"
+				},2000);
+				$("#text").text("");
+				$("#text").prepend('<img src="img/granger11.png" width="100%"/>');
+				$("div.mask").delay(4000).show(0);
+				$("div.dialogue").delay(4000).show(0);
+				reached=true;
+			}
+		}
+		$(document).ready(function(){
+			var $winwidth = $(window).width();
+			var $winheight = $(window).height();
+			$("#text").text("");
+			$("#text").prepend('<img src="img/granger8.png" width="100%"/>');
+			$("#divg").css({
+				left: $winwidth/2,
+				top: $winheight/2
+			});
+			$("img.source-image").attr({
+				width: $winwidth,
+				height: $winheight
+			});
+			$(window).bind("resize", function(){ 
+				var $winwidth = $(window).width();
+				var $winheight = $(window).height();
+				$("img.source-image").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+				$("#divg").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+			 });
+		}); 
+	</script>
+</head>
+<body id="page-body">
+	<img id="source-image" src="img/subway.jpg" alt="" />
+	<div id="actual-body">
+			<img src="img/boy.png" alt="" class="boysub"/>
+			<img src="img/injured.png" alt="" class="boysub noShow" id="injured"/>
+			<img src="img/bully1.png" alt="" class="bully1"/>
+			<img src="img/hit.png" alt="" class="bully1 noShow" id="hit"/>
+			<img src="img/run1.png" alt="" class="bully1 noShow" id="run1"/>
+			<img src="img/bully2.png" alt="" class="bully2"/>
+			<img src="img/run2.png" alt="" class="bully2 noShow" id="run2"/>
+			<img src="img/scared.png" alt="" class="help" onclick="showHelp()"/>
+			<img src="img/money.png" alt="" class="money" onclick="showMoney()"/>
+			<img src="img/route111.png" alt="" class="route111" height="25%"/>
+			<img src="img/route1121.png" alt="" class="route1121" width="60%"/>
+			<img src="img/route1122.png" alt="" class="route1122" width="50%"/>
+		<div class="mask">
+			<div class="dialogue">
+				<table class="layout" background="board.jpg">
+					
+						<tr><td><h2 id="text" ></h2></td></tr>
+						<tr><td align="right"><img src="img/continue.png" alt="" align="right" onclick="closeWindow()" class="next"/></td></tr>
+					
+				</table>		
+			</div>
+		</div>
+	</div>
+</body>

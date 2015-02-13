@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="css/game.css">
+	<script src="js/jquery.js"></script>
+	<script type="text/javascript" src="http://jqueryrotate.googlecode.com/svn/trunk/jQueryRotate.js"></script>
+	<script>
+		var second=true;
+		var done=false;
+		var call = function(){
+			done=true;
+			$("#text").text("");
+			$("#text").prepend('<img src="img/text14.png" width="100%"/>');
+			$("div.mask").show();
+			$("div.dialogue").show();
+		}
+		var closeWindow = function(){
+			$("div.mask").hide();
+			$("div.dialogue").hide();
+			if(second==true)
+			{
+				second=false;
+			}
+			else if(done==true)
+				window.location.href="singleMotherScene7.html";
+		}
+		var route = function(){
+			done=true;
+				$("img.singlemother").animate({
+					top:40+"%",
+					left:73+"%"
+				},4000);
+				$("img.route1121").delay(2000).fadeIn(1000);
+			$("#text").text("");
+			$("#text").prepend('<img src="img/text14.png" width="100%"/>');
+			$("div.mask").delay(5000).show(0);
+			$("div.dialogue").delay(5000).show(0);
+		}
+
+		$(document).ready(function(){
+			var $winwidth = $(window).width();
+			var $winheight = $(window).height();
+			$("#text").text("");
+			$("#text").prepend('<img src="img/text18.png" width="100%"/>');
+			$("#divg").css({
+				left: $winwidth/2,
+				top: $winheight/2
+			});
+			$("img.source-image").attr({
+				width: $winwidth,
+				height: $winheight
+			});
+			$(window).bind("resize", function(){ 
+				var $winwidth = $(window).width();
+				var $winheight = $(window).height();
+				$("img.source-image").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+				$("#divg").attr({
+					width: $winwidth,
+					height: $winheight
+				});
+			 });
+		}); 
+	</script>
+</head>
+<body id="page-body">
+	<img id="source-image" src="img/bg.jpg" alt="" />
+	<div id="actual-body">
+			<img src="img/phone.png" alt="" class="phone" onclick="call()"/>
+			<img src="img/hospital.png" alt="" class="hospital" onclick="route()"/>
+			<img src="img/route1121.png" alt="" class="route1121" width="60%"/>
+			<img src="img/singlemother.png" alt="" class="singlemother"/>
+		<div class="mask">
+			<div class="dialogue">
+				<table class="layout">
+					<tr><td><h2 id="text"></h2></td></tr>
+					<tr><td align="right"><img src="img/continue.png" alt="" align="right" onclick="closeWindow()" class="next"/></td></tr>
+				</table>		
+			</div>
+		</div>
+	</div>
+</body>

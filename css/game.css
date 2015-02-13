@@ -1,0 +1,304 @@
+html
+{
+	margin:0;
+	border:0;
+}
+body
+{
+	margin:0;
+	border:0;
+	overflow: hidden;
+}
+#source-image {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+#actual-body
+{
+	width:100%;
+	position: fixed;
+	top:10%;
+	left:0;
+	color:black;
+	margin-left: auto;
+	margin-right: auto;
+	height:60%;
+	
+}
+#icons-table
+{
+	border: 0px;
+	width:90%;
+	height:100%;
+	font-family:"Times New Roman", Times, serif;
+	font-weight:bold;
+	font-size:27px;
+	color:#33CCFF;
+}
+
+#divYouth,#divProfessional,#divVeteran,#divSingleMother
+{
+	position:fixed;
+	top:0px;
+	width:0px;
+	opacity:0.90;
+	filter:alpha(opacity=90%);
+	height:0px;
+	overflow: hidden;
+	margin-left:auto;
+	margin-right:auto;
+	background-image:url('../img/storyBg.jpg');
+}
+.close
+{
+	cursor:pointer;
+}
+table.layout
+{
+	width:98%;
+	height:98%;
+}
+table.layout1
+{
+	width:98%;
+	height:98%;
+}
+div.mask
+{
+	width:100%;
+	height:100%;
+	/*background-color: black;*/
+	opacity:0.90;
+	filter:alpha(opacity=90%);
+	left:0%;
+	top:0%;
+	position:fixed;
+}
+div.dialogue
+{
+	width: 40%;
+	left: 30%;
+	top:2%;
+	background-color: white;
+	position:fixed;
+	padding: 10px;
+}
+img.house
+{
+	position:fixed;
+	top:5%;
+	left:30%;
+	cursor: pointer;
+}
+img.schoolBoy
+{
+	position:fixed;
+	top:5%;
+	left:15%;
+	cursor: pointer;
+}
+img.shelter1
+{
+	position:fixed;
+	left:10%;
+	cursor: pointer;
+}
+img.shelter2
+{
+	position:fixed;
+	top:20%;
+	left:70%;
+	cursor: pointer;
+}
+img.singlemother
+{
+	position:fixed;
+	left:15%;
+	top:55%;
+}
+img.tutor
+{
+	position:fixed;
+	left:15%;
+	top:4%;
+	cursor: pointer;
+}
+img.phone
+{
+	position:fixed;
+	left:20%;
+	top:40%;
+	cursor: pointer;
+}
+img.phone1
+{
+	position:fixed;
+	left:20%;
+	top:50%;
+	cursor: pointer;
+}
+img.search
+{
+	position:fixed;
+	left:70%;
+	cursor: pointer;
+	top:45%;
+}
+img.contact
+{
+	position:fixed;
+	left:20%;
+	cursor: pointer;
+	top:40%;
+}
+img.company
+{
+	position:fixed;
+	left:80%;
+	top:20%;
+	cursor: pointer;
+}
+img.mall
+{
+	position:fixed;
+	left:75%;
+	top:30%;
+	cursor: pointer;
+}
+img.teacher
+{
+	position:fixed;
+	left:75%;
+	top:20%;
+	cursor: pointer;
+}
+img.hospital
+{
+	position:fixed;
+	left:80%;
+	top:30%;
+	cursor: pointer;
+}
+img.boy
+{
+	position:fixed;
+	top:35%;
+	left:18%;
+}
+img.boyend
+{
+	position:fixed;
+	top:60%;
+	left:50%;
+}
+img.clothesend
+{
+	position:fixed;
+	top:30%;
+	left:10%;
+	cursor:pointer;
+}
+img.teacherend
+{
+	position:fixed;
+	top:15%;
+	left:40%;
+	cursor:pointer;
+}
+img.bulliesend
+{
+	position:fixed;
+	top:17%;
+	left:70%;
+	cursor:pointer;
+}
+img.boysub
+{
+	position:fixed;
+	top:50%;
+	left:42%;
+}
+img.bully1
+{
+	position:fixed;
+	top:38%;
+	left:36%;
+}
+img.help
+{
+	position:fixed;
+	top:1%;
+	left:20%;
+	cursor:pointer;
+}
+img.money
+{
+	position:fixed;
+	top:1%;
+	left:50%;
+	cursor:pointer;
+}
+img.bully2
+{
+	position:fixed;
+	top:38%;
+	left:45%;
+}
+img.veteran
+{
+	position:fixed;
+	top:50%;
+	left:5%;
+}
+img.singleMother1
+{
+	position:fixed;
+	top:50%;
+	left:10%;
+}
+img.route111
+{
+	position:fixed;
+	left:20%;
+	top:42%;
+	display:none;
+}
+img.route1121
+{
+	position:fixed;
+	left:20%;
+	top:50%;
+	display:none;
+}
+img.route1122
+{
+	position:fixed;
+	left:27%;
+	top:40%;
+	display:none;
+}
+img.school
+{
+	position:fixed;
+	left:13%;
+	top:10%;
+	cursor: pointer;
+}
+img.distOffice
+{
+	position:fixed;
+	left:70%;
+	top:20%;
+	cursor: pointer;
+}
+img.next
+{
+	cursor: pointer;
+}
+.noShow
+{
+	display:none;
+}
